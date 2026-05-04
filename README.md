@@ -1,0 +1,1 @@
+04/05   -   Configurazione e setup del progetto. Familiarizzazione con la piattaforma ODOO
