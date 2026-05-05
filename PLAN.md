@@ -3,16 +3,18 @@
 - Modulo custom (estensione di Project)
     1) Fetching
     2) Parsing
-- Collegamento db
 - Backup
+- LAN porting
+- Mobile support
+- Legacy migration
 
 
-Future resources:
-https://www.odoo.com/documentation/19.0/developer/tutorials/server_framework_101.html
-https://www.youtube.com/watch?v=EGHn8v4xbO8
+Useful resources:
+https://www.odoo.com/documentation/19.0/applications/studio/fields.html#studio-fields-simple-fields
 
 
 Useful commands:
 docker compose up -d
+docker compose restart odoo
 docker logs -f odoo_app
 docker compose down
