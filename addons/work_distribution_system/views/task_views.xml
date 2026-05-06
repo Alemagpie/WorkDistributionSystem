@@ -18,10 +18,16 @@
                     <field name="date_deadline" string="Scadenza"/>
                 </group>
                 <separator/>
-                <group>
+                <group col="3">
                     <field name="arrive_date" readonly="1"/>
                     <field name="create_date" string="Data e ora di creazione" readonly="1"/>
                     <field name="write_date" string="Ultima modifica" readonly="1"/>
+                </group>
+                <separator/>
+                <group>
+                    <field name="mail_sender" string="Mittente" readonly="1"/>
+                    <field name="mail_object" string="Oggetto" readonly="1"/>
+                    <field name="mail_body" string="Corpo" readonly="1"/>
                 </group>
             </xpath>
 
