@@ -26,7 +26,7 @@
                 <separator/>
                 <group>
                     <field name="mail_sender" string="Mittente" readonly="1"/>
-                    <field name="mail_object" string="Oggetto" readonly="1"/>
+                    <field name="mail_subject" string="Oggetto" readonly="1"/>
                     <field name="mail_body" string="Corpo" readonly="1"/>
                 </group>
             </xpath>

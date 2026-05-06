@@ -1,12 +1,26 @@
-- Setup IMAP
-- Definizione workflow email
-- Modulo custom (estensione di Project)
+- Setup IMAP    ✔
+- Definizione workflow email    ✔
+- Modulo custom (estensione di Project)     
     1) Fetching
     2) Parsing
+- Attachment handling
+- Cron remove (remove tasks from view after a while)
+- Extra functions
 - Backup
+    1) DB dump
+    2) restore test
 - LAN porting
 - Mobile support
+- Users
+- Assignment logic
+- Automation 
+    1) defaults
+    2) auto-routing
+    3) notifications
+- Field tests
 - Legacy migration
+- Refactor and optimization
+- Docs
 
 
 Useful resources:
