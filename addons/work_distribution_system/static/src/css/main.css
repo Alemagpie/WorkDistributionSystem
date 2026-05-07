@@ -1,0 +1,30 @@
+#download_btn {
+    background-image: url('../img/download-icon.png');
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+}
+
+.bottom_btn {
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+}
+
+.btn_send_it {
+    background-image: url('../img/send_it-icon.png');
+}
+
+.btn_send_eng {
+    background-image: url('../img/send_eng-icon.png');
+}
+
+/*
+.btn_archive {
+    
+}
+
+.btn_delete {
+
+}
+*/

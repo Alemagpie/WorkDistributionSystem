@@ -6,7 +6,12 @@
         <field name="inherit_id" ref="project.view_task_form2"/>
         <field name="arch" type="xml">
 
-            <!--New fields-->
+            <!--Header fields-->
+            <xpath expr="//header" position="inside">
+                <button name="save_changes" type="object" string="Salva modifiche"/>
+            </xpath>
+
+            <!--Form fields-->
             <xpath expr="//field[@name='description']" position="before">
                 <group>
                     <field name="id" string="ID Lavoro" readonly="1"/>
@@ -28,6 +33,19 @@
                     <field name="mail_sender" string="Mittente" readonly="1"/>
                     <field name="mail_subject" string="Oggetto" readonly="1"/>
                     <field name="mail_body" string="Corpo" readonly="1"/>
+                </group>
+                <separator/>
+                <group>
+                    <field name="mail_attach_count" readonly="1"/>
+                    <button name="send_response_it" type="object" id="download_btn" attrs="{'invisible': [('mail_attach_count', '=', '0')]}"/>
+                </group>
+            </xpath>
+
+            <xpath expr="//field[@name='description']" position="after">
+                <separator/>
+                <group>
+                    <button name="send_response_it" type="object" class="bottom_btn btn_send_it"/>
+                    <button name="send_response_eng" type="object" class="bottom_btn btn_send_eng"/>
                 </group>
             </xpath>
 

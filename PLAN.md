@@ -6,6 +6,11 @@
 - Attachment handling
 - Cron remove (remove tasks from view after a while)
 - Extra functions
+    1) Archive
+    2) Delete
+    3) Send response (it)
+    4) Send response (eng)
+- Protocol connections (TCP, ...)
 - Backup
     1) DB dump
     2) restore test
@@ -24,7 +29,12 @@
 
 
 Useful resources:
+https://www.odoo.com/documentation/16.0/
+https://www.odoo.com/documentation/16.0/developer/reference/backend/orm.html
+https://www.odoo.com/documentation/16.0/developer/reference/backend/views.html
 https://www.odoo.com/documentation/19.0/applications/studio/fields.html#studio-fields-simple-fields
+https://learnopenerp.blogspot.com/2020/05/how-to-create-scheduled-action-in-odoo.html
+https://learnopenerp.blogspot.com/2020/05/how-to-create-scheduled-action-in-odoo.html
 
 
 Useful commands:

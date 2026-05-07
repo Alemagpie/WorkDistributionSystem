@@ -1,4 +1,6 @@
 .env
-env/
+.pyc
 
+env/
 data/
+__pycache__/
