@@ -9,22 +9,22 @@
     background-size: cover;
     width: 32px;
     height: 32px;
+    border: 3px black solid;
+    margin: 10px;
 }
 
-.btn_send_it {
+#btn_send_it {
     background-image: url('../img/send_it-icon.png');
 }
 
-.btn_send_eng {
+#btn_send_eng {
     background-image: url('../img/send_eng-icon.png');
 }
 
-/*
-.btn_archive {
-    
+#btn_archive {
+    background-image: url('../img/archive-icon.png');
 }
 
-.btn_delete {
-
+#btn_delete {
+    background-image: url('../img/delete-icon.png');
 }
-*/
