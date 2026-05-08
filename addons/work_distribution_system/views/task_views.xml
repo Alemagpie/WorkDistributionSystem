@@ -37,15 +37,24 @@
                 <separator/>
                 <group>
                     <field name="mail_attach_count" readonly="1"/>
-                    <button name="download_attachments" title="Scarica allegati" type="object" id="download_btn" attrs="{'invisible': [('mail_attach_count', '=', '0')]}"/>
+                    <!--<button name="download_all_attachments" title="Scarica tutto" type="object" id="download_btn" attrs="{'invisible': [('mail_attach_count', '=', 0)]}"/>-->
+                    <field name="mail_attach_ids" readonly="1" attrs="{'invisible': [('mail_attach_count', '=', 0)]}">
+                        <tree>
+                            <field name="name" string="Nome file"/>
+                            <field name="mimetype" string="Tipo"/>
+                            <field name="file_size" string="Dimensione"/>
+                            <button name="action_download" title="Scarica allegati" type="object" id="download_btn"/>
+                        </tree>
+                    </field>
                 </group>
             </xpath>
 
             <xpath expr="//field[@name='description']" position="after">
                 <separator/>
                 <div>
-                    <button name="archive_task" title="Archivia task" type="object" class="bottom_btn" id="btn_archive"/>
-                    <button name="delete_task" title="Cancella task" type="object" class="bottom_btn" id="btn_delete"/>
+                    <button name="archive_task" title="Archivia task" type="object" class="bottom_btn" id="btn_archive" attrs="{'invisible': [('active', '=', False)]}"/>
+                    <button name="unarchive_task" title="Disarchivia task" type="object" class="bottom_btn" id="btn_unarchive" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <button name="delete_task" title="Cancella task" type="object" class="bottom_btn" id="btn_delete" confirm="Sei sicuro di voler eliminare questo task? L'operazione non può essere annullata."/>
                     <button name="send_response_it"  title="Invia risposta in italiano" type="object" class="bottom_btn" id="btn_send_it"/>
                     <button name="send_response_eng"  title="Invia risposta in inglese" type="object" class="bottom_btn" id="btn_send_eng"/>
                 </div>

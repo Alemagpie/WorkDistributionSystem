@@ -3,20 +3,21 @@
 - Modulo custom (estensione di Project)                             ✔
     1) Fetching                                                         ✔
     2) Parsing                                                          ✔
+- Attachment handling                                               ✔
 - Extra functions
-    1) Archive
-    2) Delete
-    3) Send response (it)
-    4) Send response (eng)
-- Attachment handling
+    1) Archive                                                      ✔
+    2) Unarchive                                                    ✔
+    3) Delete
+    4) Send response (it)
+    5) Send response (eng)
 - Cron remove (remove tasks from view after a while)
 - Network porting
-- Installer
 - Protocol connections (TCP, ...)
 - Backup
     1) DB dump
     2) restore test
     3) Legacy migration
+- Installer
 - Users
 - Assignment logic
 - Automation 

@@ -3,7 +3,8 @@
 05/05   -   Pianificazione UI
 06/05   -   Inizio implementazione UI e funzione da email a task
 07/05   -   Continuo implementazione UI e funzioni aggiuntive
-08/05   -   
+08/05   -   Continuo implementazione UI, gestione di allegati e funzioni cancella e archivia/
+                disarchivia
 09/05   -   
 
 11/05   -   
