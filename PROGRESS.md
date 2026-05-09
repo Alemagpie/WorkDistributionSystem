@@ -1,11 +1,9 @@
-04/05   -   Configurazione e setup del progetto. Familiarizzazione con la piattaforma ODOO
-
-05/05   -   Pianificazione UI
-06/05   -   Inizio implementazione UI e funzione da email a task
-07/05   -   Continuo implementazione UI e funzioni aggiuntive
-08/05   -   Continuo implementazione UI, gestione di allegati e funzioni cancella e archivia/
+05/05   -   Configurazione e setup del progetto. Familiarizzazione con la piattaforma ODOO
+06/05   -   Pianificazione UI
+07/05   -   Inizio implementazione UI e funzione da email a task
+08/05   -   Continuo implementazione UI e funzioni aggiuntive
+09/05   -   Continuo implementazione UI, gestione di allegati e funzioni cancella e archivia/
                 disarchivia
-09/05   -   
 
 11/05   -   
 12/05   -      
