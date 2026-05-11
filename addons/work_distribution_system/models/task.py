@@ -80,14 +80,20 @@ class Task(models.Model):
             file.action_download()
 
     def save_changes(self):
+        #Not really needed since there's autosave, still here for UX
         pass
 
+    #Usa un template ed invia una mail di risposta
     def send_response_it(self):
-        pass
+        template = self.env.ref('work_distribution_system.email_template_response_it')
+        template.send_mail(self.id, force_send=True)
 
+    #Usa un template ed invia una mail di risposta
     def send_response_eng(self):
-        pass
+        template = self.env.ref('work_distribution_system.email_template_response_en')
+        template.send_mail(self.id, force_send=True)
 
+    #Uses ODOO's default system by modifying the "active" parameter
     def archive_task(self):
         self.write({'active': False})
         return {
@@ -95,6 +101,7 @@ class Task(models.Model):
             'tag': 'reload'
         }
 
+    #Uses ODOO's default system by modifying the "active" parameter
     def unarchive_task(self):
         self.write({'active': True})
         return {
@@ -102,6 +109,7 @@ class Task(models.Model):
             'tag': 'reload'
         }
 
+    #Deletes the task and its attachments, but it's not shown visually
     def delete_task(self):
         project = self.project_id
 

@@ -6,11 +6,14 @@
     'author': 'Alessio Fagnani (UNIPD)',
     'description': 'Custom extension of project tasks',
     'data': [
-        'views/task_views.xml'
+        'views/task_views.xml',
+        'data/response_template_it.xml',
+        'data/response_template_en.xml'
     ],
     'assets': {
         'web.assets_backend': [
             'work_distribution_system/static/src/img',
+            'work_distribution_system/static/src/js/auto_refresh.js',
             'work_distribution_system/static/src/css/main.css'
         ]
     },

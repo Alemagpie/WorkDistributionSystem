@@ -7,9 +7,9 @@
 - Extra functions
     1) Archive                                                      ✔
     2) Unarchive                                                    ✔
-    3) Delete
-    4) Send response (it)
-    5) Send response (eng)
+    3) Delete                                                       ✔
+    4) Send response (it)                                           ✔
+    5) Send response (eng)                                          ✔
 - Cron remove (remove tasks from view after a while)
 - Network porting
 - Protocol connections (TCP, ...)
