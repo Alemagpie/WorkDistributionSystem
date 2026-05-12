@@ -8,4 +8,8 @@
     -   Archive/unarchive
     -   Delete
     -   Reply (it/eng)
-6) Download attachments
+6) Attachments
+    -   Download
+    -   Backup
+    -   Delete
+7) Test archive cron job

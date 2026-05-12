@@ -1,6 +1,0 @@
-- Funzioni aggiuntive: quali e come (delete, archive, send_it, send_eng, etc...)
-- Cosa fare con gli allegati (backup o cancellazione ogni x giorni?)
-- Ogni quanto il fetching
-- Ogni quanto il backup
-- Come gestire l'archiviazione (manuale o automatica cron)
-- Trasmissione (TCP, ...) a cosa (alla stampa?)

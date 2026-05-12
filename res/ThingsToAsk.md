@@ -1,0 +1,7 @@
+- Funzioni aggiuntive: quali e come (delete, archive, send_it, send_eng, etc...)
+- Cosa fare con gli allegati (backup o cancellazione ogni x giorni?) -> Backup 
+- Ogni quanto il fetching -> 30s
+- Ogni quanto il backup -> Ogni giorno di notte (se a macchina attiva - incrementale) o settimanale (totale)
+- Come gestire l'archiviazione (manuale o automatica cron) -> Solo per ufficio commerciale [DA APPROFONDIRE]
+- Migrazione? -> Non serve, il vecchio sistema lavorerà in parallelo
+- Trasmissione (TCP, ...) a cosa (alla stampa?) -> Firstclass è un server TCP, ad alcune caselle si può accedere tramite TCP [DA APPROGONDIRE]

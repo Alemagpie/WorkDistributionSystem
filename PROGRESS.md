@@ -5,8 +5,8 @@
 09/05   -   Continuo implementazione UI, gestione di allegati e funzioni cancella e archivia/
                 disarchivia
 
-11/05   -   
-12/05   -      
+11/05   -   Implementazione funzioni risposta mail it/eng
+12/05   -   Definizione caratteristiche con tutor aziendale. Implem archiviazione automatica
 13/05   -   
 14/05   -   
 15/05   -   
