@@ -41,3 +41,11 @@ docker compose down
     #Archive
     #Automatic response (it)
     #Automatic response (eng)
+
+
+CLOUDFLARED:
+cloudflared.exe service install eyJhIjoiZmQ5YWU4MjJkNjc4Mzc3NGEyMTU5YTBmMWYwZDI4MWMiLCJ0IjoiNWY1MmZmODMtMzQyOC00NTRjLWI5ZWEtMDJiZDM0YzAzYzQ5IiwicyI6Ik56STNNMkppWWpFdE5UVmtOaTAwT0RjeUxUZzVNRFl0TkRka01tRTBNR0U1TkRrNSJ9
+
+cloudflared tunnel --url http://localhost:8069
+
+cloudflared service uninstall

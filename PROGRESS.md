@@ -1,13 +1,14 @@
-05/05   -   Configurazione e setup del progetto. Familiarizzazione con la piattaforma ODOO
-06/05   -   Pianificazione UI
-07/05   -   Inizio implementazione UI e funzione da email a task
-08/05   -   Continuo implementazione UI e funzioni aggiuntive
+05/05   -   Configurazione e setup del progetto. Familiarizzazione con la piattaforma ODOO.
+06/05   -   Pianificazione UI.
+07/05   -   Inizio implementazione UI e funzione da email a task.
+08/05   -   Continuo implementazione UI e funzioni aggiuntive.
 09/05   -   Continuo implementazione UI, gestione di allegati e funzioni cancella e archivia/
-                disarchivia
+                disarchivia.
 
-11/05   -   Implementazione funzioni risposta mail it/eng
-12/05   -   Definizione caratteristiche con tutor aziendale. Implem archiviazione automatica
-13/05   -   
+11/05   -   Implementazione funzioni risposta mail it/eng.
+12/05   -   Definizione caratteristiche con tutor aziendale. Implem archiviazione automatica.
+13/05   -   Test di port forwarding locale. Test di networking con cloudflare. Test di forwarding 
+                pubblico con Cloudflared. Correzione azione automatica di cancellazione.
 14/05   -   
 15/05   -   
 16/05   -   

@@ -10,12 +10,11 @@
     3) Delete                                                           ✔
     4) Send response (it)                                               ✔
     5) Send response (eng)                                              ✔
-- Cron remove (remove tasks from view after a while)                    ✔
-- Network porting
+- Cron archive and delete                                               ✔
 - Backup
     1) DB dump
     2) restore test
-    3) Legacy migration
+- Network porting
 - Installer
 - Users
 - Protocol connections (TCP, ...)

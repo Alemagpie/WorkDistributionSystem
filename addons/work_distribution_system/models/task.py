@@ -135,3 +135,20 @@ class Task(models.Model):
             #if(hours > 24):
             if(years > 5):
                 task.archive_task()
+
+    #Called by a cron job. It checks if the tasks is older than a certain threshold and if so it archives it
+    @api.model
+    def check_date_delete(self):
+        tasks = self.search([
+            ('arrive_date', '!=', False),
+            ('active', '=', True)
+        ])
+
+        for task in tasks:
+            delta = fields.Datetime.now() - task.arrive_date
+            hours = delta.total_seconds() / 3600
+            years = delta.total_seconds() / 31536000    #exactly one year
+            
+            #if(hours > 24):
+            if(years > 5):
+                task.delete_task()

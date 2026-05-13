@@ -8,6 +8,7 @@
     'data': [
         'views/task_views.xml',
         'data/archive_tasks_cron.xml',
+        'data/delete_tasks_cron.xml',
         'data/response_template_it.xml',
         'data/response_template_en.xml'
     ],
