@@ -7,9 +7,9 @@
 
 11/05   -   Implementazione funzioni risposta mail it/eng.
 12/05   -   Definizione caratteristiche con tutor aziendale. Implem archiviazione automatica.
-13/05   -   Test di port forwarding locale. Test di networking con cloudflare. Test di forwarding 
-                pubblico con Cloudflared. Correzione azione automatica di cancellazione.
-14/05   -   
+13/05   -   Test di port forwarding locale. Test di forwarding pubblico con Cloudflared. Correzione 
+                azione automatica di cancellazione.
+14/05   -   Creazione documentazione.
 15/05   -   
 16/05   -   
 
