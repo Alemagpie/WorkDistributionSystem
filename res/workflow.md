@@ -50,3 +50,7 @@ cloudflared.exe service install eyJhIjoiZmQ5YWU4MjJkNjc4Mzc3NGEyMTU5YTBmMWYwZDI4
 cloudflared tunnel --url http://localhost:8069
 
 cloudflared service uninstall
+
+
+Alla pagina localhost:8069/web/database/manager si possono creare manualmente backup e/o caricarne.
+Una volta caricato un backup con nome DIVERSO dal db di prod, fare il log-out e selezionare il db che si vuole ispezionare premendo "Gestione database, per poi fare il log-in.
