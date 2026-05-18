@@ -12,6 +12,7 @@ https://www.odoo.com/documentation/16.0/developer/reference/backend/views.html
 https://www.odoo.com/documentation/19.0/applications/studio/fields.html#studio-fields-simple-fields
 https://learnopenerp.blogspot.com/2020/05/how-to-create-scheduled-action-in-odoo.html
 https://www.odoo.com/it_IT/forum/assistenza-1/creating-automatic-scheduled-job-to-archive-tasks-199693
+https://linuxize.com/post/how-to-setup-automatic-odoo-backup/
 
 Useful commands:
 docker compose up -d

@@ -16,5 +16,6 @@ Utilizza il nostro FTP:
 Se inviate spesso immagini o documenti, potete richiedere l’attivazione di un semplice metodo per caricare i file direttamente nei nostri server.
 
 - In che formato il backup?
+- Il backup è consultabile direttamente dall'app o va prima ripristinato?
 - Una volta arrivata una mail con allegati, cosa succede ai file? es. come vengono inviati alle 
     stampanti? (è cosa di cui mi devo occupare?)

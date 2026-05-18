@@ -150,5 +150,5 @@ class Task(models.Model):
             years = delta.total_seconds() / 31536000    #exactly one year
             
             #if(hours > 24):
-            if(years > 5):
+            if(years > 5 and not task.active):  #Archived tasks don't get deleted
                 task.delete_task()
