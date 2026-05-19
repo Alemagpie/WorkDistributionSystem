@@ -14,8 +14,8 @@
 16/05   -   Continuo documentazione.
 
 18/05   -   Ricerca opzioni per backup. Bug fixes. 
-19/05   -   
-20/05   -   Esposizione progresso in azienda.
+19/05   -   Implementazione backup.
+20/05   -   Test sistema di backup.
 21/05   -   
 22/05   -   
 23/05   -   

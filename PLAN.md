@@ -10,10 +10,10 @@
     3) Delete                                                           ✔
     4) Send response (it)                                               ✔
     5) Send response (eng)                                              ✔
-- Cron archive and delete                                               ✔
-- Backup
-    1) DB dump
-    2) restore test
+- Cron archive and delete                                           ✔
+- Backup                                                            ✔
+    1) DB dump                                                          ✔
+    2) restore test                                                     ✔
 - Network porting
 - Installer
 - Users

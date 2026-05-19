@@ -19,6 +19,9 @@ docker compose up -d
 docker compose restart odoo
 docker logs -f odoo_app
 docker compose down
+docker exec -it odoo_db psql -U odoo -c "DROP DATABASE restore_test;"
+docker exec -it odoo_db psql -U odoo -d postgres -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = 'restore_test';"
+docker logs odoo_app --tail=50
 
 #Fields:
     #id (from id)                       ✔

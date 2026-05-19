@@ -1,6 +1,8 @@
 .env
 *.pyc
+*.zip
 
+backups/
 env/
 data/
 __pycache__/

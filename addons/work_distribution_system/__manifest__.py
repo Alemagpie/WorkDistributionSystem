@@ -2,13 +2,14 @@
     'name': 'Work Distribution System',
     'technical-name': 'work_distribution_system',
     'version': '1.0',
-    'depends': ['project', 'hr'],  
+    'depends': ['project', 'hr', 'base_setup'],  
     'author': 'Alessio Fagnani (UNIPD)',
     'description': 'Custom extension of project tasks',
     'data': [
         'views/task_views.xml',
         'data/archive_tasks_cron.xml',
         'data/delete_tasks_cron.xml',
+        'data/backup_cron.xml',
         'data/response_template_it.xml',
         'data/response_template_en.xml'
     ],

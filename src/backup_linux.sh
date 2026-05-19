@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# DO NOT USE, ODOO WILL BLOCK ANY EXTERNAL API CALL
+
 source ../.env
 
 BACKUP_DIR = "../backups"
@@ -22,3 +24,10 @@ curl -X POST \
 # delete old backups
 # -type f => only files, -mtime +2 => older than 2 days
 find ${BACKUP_DIR} -type f -mtime +2 -name "*.zip" -delete
+
+
+
+# Create cron job with this file:
+# sudo chmod +x ./src/backup_linux.sh
+# crontab -e
+# 30 1 * * * ./backup_linux.sh
