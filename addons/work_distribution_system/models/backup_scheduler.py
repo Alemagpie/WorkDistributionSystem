@@ -9,12 +9,12 @@ class BackupScheduler(models.Model):
 
     @api.model
     def backup(self):
-        backup_dir = '/var/lib/odoo/backups'
+        backup_dir = '/mnt/backups'
         os.makedirs(backup_dir, exist_ok= True)
 
         date = datetime.now().strftime('%Y-%m-%d_%H-%M')
         db_name = self.env.cr.dbname
-        filename = f'{backup_dir}/{db_name}.zip'
+        filename = f'{backup_dir}/{date}.zip'
 
         #ODOO's internal api
         backup_data = db_service.dump_db(db_name, None, 'zip')
