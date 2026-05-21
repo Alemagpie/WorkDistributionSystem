@@ -16,7 +16,7 @@
 18/05   -   Ricerca opzioni per backup. Bug fixes. 
 19/05   -   Implementazione backup.
 20/05   -   Test sistema di backup.
-21/05   -   
+21/05   -   Revisione automatizzazioni attive. Documentazione.
 22/05   -   
 23/05   -   
 
