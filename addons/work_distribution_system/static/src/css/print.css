@@ -1,0 +1,18 @@
+@media print {
+    /* Hide everything */
+    body * {
+        visibility: hidden;
+    }
+
+    /* Reveal only important info */
+    #email_print_area * {
+        visibility: visible;
+    }
+
+    #email_print_area {
+        position: absolute;
+        top: 2vw;
+        left: 2w;
+        width: 100%;
+    }
+}

@@ -13,6 +13,7 @@
 
             <!--Form fields-->
             <xpath expr="//field[@name='description']" position="before">
+            <div id="email_print_area">
                 <group>
                     <field name="id" string="ID Lavoro" readonly="1"/>
                 </group>
@@ -47,6 +48,7 @@
                         </tree>
                     </field>
                 </group>
+            </div>
             </xpath>
 
             <xpath expr="//field[@name='description']" position="after">
@@ -57,6 +59,7 @@
                     <button name="delete_task" title="Cancella task" type="object" class="bottom_btn" id="btn_delete" confirm="Sei sicuro di voler eliminare questo task? L'operazione non può essere annullata."/>
                     <button name="send_response_it"  title="Invia risposta in italiano" type="object" class="bottom_btn" id="btn_send_it"/>
                     <button name="send_response_eng"  title="Invia risposta in inglese" type="object" class="bottom_btn" id="btn_send_eng"/>
+                    <button name="%(action_print_task)d" title="Stampa" type="action" class="bottom_btn" id="btn_print"/>
                 </div>
             </xpath>
 

@@ -13,8 +13,8 @@
 
 !!!
 Utilizza il nostro FTP:
-Se inviate spesso immagini o documenti, potete richiedere l’attivazione di un semplice metodo per caricare i file direttamente nei nostri server.
+Se inviate spesso immagini o documenti, potete richiedere l’attivazione di un semplice metodo per caricare i file direttamente nei nostri server. ->  NON DA GESTIRE
 
-- Che tipo di sicurezza c'è per fare e caricare backup? Basta una master password?
+- Che tipo di sicurezza c'è per fare e caricare backup? Basta una master password? -> OK
 - Una volta arrivata una mail con allegati, cosa succede ai file? es. come vengono inviati alle 
-    stampanti? (è cosa di cui mi devo occupare?)
+    stampanti? (è cosa di cui mi devo occupare?) -> con tasto stampa

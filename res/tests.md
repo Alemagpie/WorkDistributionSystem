@@ -9,6 +9,8 @@
     -   Delete
     -   Reply (it/eng)
 6) Attachments
+    -   Heavy files
+    -   Preview
     -   Download
     -   Backup
     -   Delete

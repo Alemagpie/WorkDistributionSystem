@@ -17,10 +17,10 @@
 19/05   -   Implementazione backup.
 20/05   -   Test sistema di backup.
 21/05   -   Revisione automatizzazioni attive. Documentazione.
-22/05   -   
-23/05   -   
+22/05   -   Pulizia codice e controlli.
+23/05   -   Ricerca soluzioni di networking. Preparazione presentazione.
 
-25/05   -   
+25/05   -   Presentazione progresso.
 26/05   -   
 27/05   -   
 28/05   -   

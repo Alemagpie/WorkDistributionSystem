@@ -119,6 +119,14 @@ class Task(models.Model):
 
         super().unlink()
 
+    #Print task with custom view
+    def print_task(self):
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'action_print',
+            'params': {}
+        }
+
     #Called by a cron job. It checks if the tasks is older than a certain threshold and if so it archives it
     @api.model
     def check_date_archive(self):
