@@ -7,6 +7,7 @@
     'description': 'Custom extension of project tasks',
     'data': [
         'views/actions.xml',
+        'views/task_list_customization.xml',
         'views/task_views.xml',
         'data/archive_tasks_cron.xml',
         'data/delete_tasks_cron.xml',

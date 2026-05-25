@@ -1,3 +1,4 @@
+/* CSS only used when invoking the window.print() function */
 @media print {
     /* Hide everything */
     body * {

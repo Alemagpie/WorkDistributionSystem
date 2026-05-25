@@ -20,7 +20,7 @@
 22/05   -   Pulizia codice e controlli.
 23/05   -   Ricerca soluzioni di networking. Preparazione presentazione.
 
-25/05   -   Presentazione progresso.
+25/05   -   Presentazione progresso. Implementazione feedback.
 26/05   -   
 27/05   -   
 28/05   -   

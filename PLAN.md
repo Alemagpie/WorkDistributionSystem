@@ -1,6 +1,6 @@
 - Setup IMAP                                                        ✔
-- Definizione workflow email                                        ✔
-- Modulo custom (estensione di Project)                             ✔
+- Email workflow definition                                         ✔
+- Custom module (Project extention)                                 ✔
     1) Fetching                                                         ✔
     2) Parsing                                                          ✔
 - Attachment handling                                               ✔
@@ -14,15 +14,19 @@
 - Backup                                                            ✔
     1) DB dump                                                          ✔
     2) restore test                                                     ✔
+- Print function                                                    ✔
+- List fields (mittente, data)                                      ✔
+- Attachment previews (PDF, txt)
+- Open indicator (tasks)
+- Deleted bin
 - Network porting
-- Installer
 - Users
-- Protocol connections (TCP, ...)
 - Assignment logic
 - Automation 
     1) defaults
     2) auto-routing
     3) notifications
-- IRL tests and feedback
+- Tests
+- Feedback
 - Docs
 - Refactor and optimization
