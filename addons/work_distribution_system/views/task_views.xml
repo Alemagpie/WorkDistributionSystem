@@ -38,12 +38,13 @@
                 <separator/>
                 <group>
                     <field name="mail_attach_count" readonly="1"/>
+                    <separator/>
                     <!--<button name="download_all_attachments" title="Scarica tutto" type="object" id="download_btn" attrs="{'invisible': [('mail_attach_count', '=', 0)]}"/>-->
                     <field name="mail_attach_ids" readonly="1" attrs="{'invisible': [('mail_attach_count', '=', 0)]}">
                         <tree>
                             <field name="name" string="Nome file"/>
                             <field name="mimetype" string="Tipo"/>
-                            <field name="file_size" string="Dimensione"/>
+                            <field name="file_size" string="Dimensione (MB)"/>
                             <button name="action_download" title="Scarica allegati" type="object" id="download_btn"/>
                         </tree>
                     </field>

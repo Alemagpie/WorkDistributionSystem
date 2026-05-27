@@ -1,0 +1,9 @@
+<record id="refresh_tree_view" model="ir.ui.view">
+    <field name="name">refresh.auction.tree</field>
+    <field name="model">refresh.auction</field>
+    <field name="arch" type="xml">
+        <tree js_class="refresh_list">
+            <field name="name"/>
+        </tree>
+    </field>
+</record>

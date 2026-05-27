@@ -18,9 +18,11 @@
 - List fields (mittente, data)                                      ✔
 - Font and size                                                     ✔
 - Tag task                                                          ✔
+- Auto refresh
 - PDF attachment previews 
 - Open indicator (tasks)
 - Deleted bin
+- End of month task recap
 - Assignment logic
 - Network porting
 - Users

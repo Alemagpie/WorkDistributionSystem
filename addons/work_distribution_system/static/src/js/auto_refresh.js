@@ -1,20 +1,50 @@
 /** @odoo-module **/
-
 import { registry } from "@web/core/registry";
-import { useEffect } from "@odoo/owl";
 
 const autoRefreshService = {
-    start(env) {
-        setInterval(() => {
-            const actionService = env.services.action;
-            const currentController = actionService.currentController;
-            if (currentController?.jsId && 
-                currentController?.action?.res_model === 'project.task') {
-                env.services.action.restore(currentController.jsId);
+    dependencies: ["bus_service", "action"],
+
+    start(env, { bus_service, action }) {
+
+        bus_service.addEventListener("notification", ({ detail: notifications }) => {
+
+            for (const notif of notifications) {
+
+                let channel, payload;
+
+                // Case 1: array format
+                if (Array.isArray(notif)) {
+                    [channel, payload] = notif;
+                }
+                // Case 2: object format
+                else if (notif.payload) {
+                    channel = notif.payload.channel || notif.channel;
+                    payload = notif.payload.message || notif.payload;
+                }
+                else {
+                    channel = notif.channel;
+                    payload = notif.message;
+                }
+
+                if (channel !== "task_update") continue;
+                if (!payload || payload.type !== "task_created") continue;
+
+                const currentController = action.currentController;
+
+                if (currentController?.action?.res_model !== "project.task") continue;
+
+                const currentProjectId =
+                    currentController.model?.root?.resId ||
+                    currentController.props?.context?.default_project_id;
+
+                if (payload.project_id !== currentProjectId) continue;
+
+                currentController.reload();
             }
-        }, 60000);  //Every 60s
+        });
+
+        bus_service.start();
     }
 };
 
-//Registers a service
 registry.category("services").add("auto_refresh", autoRefreshService);
