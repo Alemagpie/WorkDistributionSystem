@@ -76,9 +76,9 @@
             <xpath expr="//*[@name='date_deadline']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
-            <xpath expr="//*[@name='tag_ids']" position="attributes">
+            <!--<xpath expr="//*[@name='tag_ids']" position="attributes">
                 <attribute name="invisible">1</attribute>
-            </xpath>
+            </xpath>-->
             <xpath expr="//*[@name='task_properties']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>

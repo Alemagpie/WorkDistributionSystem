@@ -21,8 +21,8 @@
 23/05   -   Ricerca soluzioni di networking. Preparazione presentazione.
 
 25/05   -   Presentazione progresso. Implementazione feedback.
-26/05   -   
-27/05   -   
+26/05   -   Presentazione pt.2 .
+27/05   -   Implementazione feedback.
 28/05   -   
 29/05   -   
 30/05   -   

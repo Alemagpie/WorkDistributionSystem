@@ -20,6 +20,7 @@
             'work_distribution_system/static/src/img',
             #'work_distribution_system/static/src/js/auto_refresh.js',
             'work_distribution_system/static/src/js/action_print.js',
+            'work_distribution_system/static/src/js/font_size.js',
             'work_distribution_system/static/src/css/main.css',
             'work_distribution_system/static/src/css/print.css'
         ]

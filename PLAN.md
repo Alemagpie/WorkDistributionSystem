@@ -16,17 +16,15 @@
     2) restore test                                                     ✔
 - Print function                                                    ✔
 - List fields (mittente, data)                                      ✔
-- Attachment previews (PDF, txt)
+- Font and size                                                     ✔
+- Tag task                                                          ✔
+- PDF attachment previews 
 - Open indicator (tasks)
 - Deleted bin
+- Assignment logic
 - Network porting
 - Users
-- Assignment logic
-- Automation 
-    1) defaults
-    2) auto-routing
-    3) notifications
 - Tests
 - Feedback
 - Docs
-- Refactor and optimization
+- Optimization
