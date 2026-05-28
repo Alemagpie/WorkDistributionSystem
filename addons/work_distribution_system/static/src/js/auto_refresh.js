@@ -1,50 +1,41 @@
 /** @odoo-module **/
 import { registry } from "@web/core/registry";
+import { Component, xml, onMounted, onWillUnmount } from "@odoo/owl";
+import { useService } from "@web/core/utils/hooks";
 
-const autoRefreshService = {
-    dependencies: ["bus_service", "action"],
+//Refreshes the kanban or the list every 30s by finding the current view and switching to it
+// (bus events won't work for some reason)
+class AutoRefreshComponent extends Component {
+    static template = xml`<div/>`;
 
-    start(env, { bus_service, action }) {
+    setup() {
+        const actionService = useService("action");
 
-        bus_service.addEventListener("notification", ({ detail: notifications }) => {
+        onMounted(() => {
+            this.interval = setInterval(async () => {
+                try {
+                    const controller = actionService.currentController;
+                    if (!controller) return;
+                    if (controller?.action?.res_model !== 'project.task') return;
 
-            for (const notif of notifications) {
+                    const viewType = controller?.view?.type;
+                    if (!viewType) return;
 
-                let channel, payload;
-
-                // Case 1: array format
-                if (Array.isArray(notif)) {
-                    [channel, payload] = notif;
+                    //console.log("Refreshing via switchView:", viewType);
+                    await actionService.switchView(viewType);
+                    //console.log("Refreshed");
+                } catch(e) {
+                    console.error("Refresh error:", e);
                 }
-                // Case 2: object format
-                else if (notif.payload) {
-                    channel = notif.payload.channel || notif.channel;
-                    payload = notif.payload.message || notif.payload;
-                }
-                else {
-                    channel = notif.channel;
-                    payload = notif.message;
-                }
-
-                if (channel !== "task_update") continue;
-                if (!payload || payload.type !== "task_created") continue;
-
-                const currentController = action.currentController;
-
-                if (currentController?.action?.res_model !== "project.task") continue;
-
-                const currentProjectId =
-                    currentController.model?.root?.resId ||
-                    currentController.props?.context?.default_project_id;
-
-                if (payload.project_id !== currentProjectId) continue;
-
-                currentController.reload();
-            }
+            }, 30000);
         });
 
-        bus_service.start();
+        onWillUnmount(() => {
+            clearInterval(this.interval);
+        });
     }
-};
+}
 
-registry.category("services").add("auto_refresh", autoRefreshService);
+registry.category("systray").add("auto_refresh_component", {
+    Component: AutoRefreshComponent,
+});

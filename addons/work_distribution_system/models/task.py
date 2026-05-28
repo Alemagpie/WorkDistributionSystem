@@ -35,7 +35,16 @@ class Task(models.Model):
             'arrive_date': msg_dict.get('date', fields.Datetime.now())
         })
         
-        return super().message_new(msg_dict, custom_values)
+        task = super().message_new(msg_dict, custom_values)
+
+        # Notify clients via bus
+        '''self.env['bus.bus']._sendone(
+            'notify',
+            'new_task',
+            {'task_id': task.id}
+        )'''            #Not used cause bus events won't work from the frontend for some reason
+
+        return task
     
     #Called when a reply to an email comes in and the relative task needs to be updated
     @api.model

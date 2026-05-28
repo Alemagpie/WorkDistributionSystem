@@ -19,7 +19,7 @@
     'assets': {
         'web.assets_backend': [
             'work_distribution_system/static/src/img',
-            #'work_distribution_system/static/src/js/auto_refresh.js',
+            'work_distribution_system/static/src/js/auto_refresh.js',
             #'work_distribution_system/static/src/js/list_refresher.js',
             #'work_distribution_system/static/src/js/list_view.js'
             'work_distribution_system/static/src/js/action_print.js',
