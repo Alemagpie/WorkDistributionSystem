@@ -17,13 +17,14 @@ class AutoRefreshComponent extends Component {
                     const controller = actionService.currentController;
                     if (!controller) return;
                     if (controller?.action?.res_model !== 'project.task') return;
-
+                    
+                    // Don't refresh if we're inside a single task (form view)
                     const viewType = controller?.view?.type;
-                    if (!viewType) return;
+                    if (!viewType || viewType === 'form') return;
 
-                    //console.log("Refreshing via switchView:", viewType);
+                    console.log("Refreshing via switchView:", viewType);
                     await actionService.switchView(viewType);
-                    //console.log("Refreshed");
+                    console.log("Refreshed");
                 } catch(e) {
                     console.error("Refresh error:", e);
                 }

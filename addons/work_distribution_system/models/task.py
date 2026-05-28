@@ -22,6 +22,7 @@ class Task(models.Model):
         string='Allegati'
     )
     active = fields.Boolean(default=True)
+    is_read = fields.Boolean(default=False)
 
     #Called when a new email comes in and needs to be converted into a task
     @api.model
@@ -45,6 +46,12 @@ class Task(models.Model):
         )'''            #Not used cause bus events won't work from the frontend for some reason
 
         return task
+    
+    #Called when task is open
+    def read(self, fields=None, load='_classic_read'):
+        result = super().read(fields, load)
+        self.filtered(lambda t: not t.is_read).write({'is_read': True})
+        return result
     
     #Called when a reply to an email comes in and the relative task needs to be updated
     @api.model

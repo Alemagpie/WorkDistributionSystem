@@ -57,3 +57,9 @@ cloudflared service uninstall
 
 Alla pagina localhost:8069/web/database/manager si possono creare manualmente backup e/o caricarne.
 Una volta caricato un backup con nome DIVERSO dal db di prod, fare il log-out e selezionare il db che si vuole ispezionare premendo "Gestione database, per poi fare il log-in.
+
+
+AGGIUNGERE AI DOCS:
+- come inviare mail
+- le risposte vengono aggiunte alla task originale
+- come aumentare font
