@@ -22,9 +22,9 @@ class AutoRefreshComponent extends Component {
                     const viewType = controller?.view?.type;
                     if (!viewType || viewType === 'form') return;
 
-                    console.log("Refreshing via switchView:", viewType);
+                    //console.log("Refreshing via switchView:", viewType);
                     await actionService.switchView(viewType);
-                    console.log("Refreshed");
+                    //console.log("Refreshed");
                 } catch(e) {
                     console.error("Refresh error:", e);
                 }

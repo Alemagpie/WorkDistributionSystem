@@ -24,6 +24,14 @@ class Task(models.Model):
     active = fields.Boolean(default=True)
     is_read = fields.Boolean(default=False)
 
+    #Mark task as opened
+    def mark_read(self):
+        unread = self.filtered(lambda t: not t.is_read)
+        if unread:
+            unread.write({'is_read': True})
+            return True
+        return False
+
     #Called when a new email comes in and needs to be converted into a task
     @api.model
     def message_new(self, msg_dict, custom_values=None):
@@ -47,18 +55,15 @@ class Task(models.Model):
 
         return task
     
-    #Called when task is open
-    def read(self, fields=None, load='_classic_read'):
-        result = super().read(fields, load)
-        self.filtered(lambda t: not t.is_read).write({'is_read': True})
-        return result
-    
-    #Called when a reply to an email comes in and the relative task needs to be updated
+    #Called when a reply to an email comes in and the relative task needs to be updated, appends the new body to the old one
     @api.model
     def message_update(self, msg_dict, update_vals=None):
         update_vals = update_vals or {}
+        new_body = msg_dict.get('body', '')
+        current_body = self.mail_body or ''
+
         update_vals.update({
-            'mail_body': msg_dict.get('body', '')
+            'mail_body': current_body + '<hr/>' + new_body
         })
 
         return super().message_update(msg_dict, update_vals)

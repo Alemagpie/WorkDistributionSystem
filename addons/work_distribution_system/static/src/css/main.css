@@ -38,13 +38,6 @@
 }
 
 /* Kanban unread */
-.o_kanban_record.unread_task {
-    border-left: 4px solid #ff6b6b !important;
-    background-color: #fff8f8 !important;
-}
-
-/* List unread */
-.o_data_row.unread_task td {
-    background-color: #fff8f8 !important;
-    font-weight: bold !important;
+.o_task_unread {
+    background-color: red  !important;
 }

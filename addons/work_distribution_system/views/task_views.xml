@@ -86,17 +86,20 @@
         </field>
     </record>
 
-    <!--<record id="project_task_kanban_inherit" model="ir.ui.view">
+    <record id="project_task_kanban_inherit" model="ir.ui.view">
         <field name="name">project.task.kanban.inherit</field>
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_kanban"/>
         <field name="arch" type="xml">
+
             <xpath expr="//kanban" position="inside">
                 <field name="is_read"/>
             </xpath>
-            <xpath expr="//div[hasclass('oe_kanban_card')]" position="attributes">
-                <attribute name="t-attf-class">oe_kanban_card #{!record.is_read.raw_value ? 'unread_task' : ''}</attribute>
+
+            <xpath expr="//templates/t/div" position="attributes">
+                <attribute name="t-attf-class">{{!selection_mode ? 'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) : ''}} oe_kanban_card oe_kanban_global_click {{!record.is_read.raw_value ? 'o_task_unread' : ''}}</attribute>
             </xpath>
+
         </field>
-    </record>-->
+    </record>
 </odoo>

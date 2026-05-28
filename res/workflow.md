@@ -61,5 +61,6 @@ Una volta caricato un backup con nome DIVERSO dal db di prod, fare il log-out e 
 
 AGGIUNGERE AI DOCS:
 - come inviare mail
-- le risposte vengono aggiunte alla task originale
+- messaggi interni
+- le risposte vengono aggiunte alla task originale e ai log
 - come aumentare font

@@ -19,7 +19,7 @@
 - Font and size                            ✔
 - Tag task                                 ✔
 - Auto refresh                             ✔
-- Mail system
+- Mail system                              ✔
 - Open indicator (tasks)
 - Deleted bin
 - PDF attachment previews 

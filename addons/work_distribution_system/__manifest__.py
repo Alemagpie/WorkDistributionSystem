@@ -20,8 +20,7 @@
         'web.assets_backend': [
             'work_distribution_system/static/src/img',
             'work_distribution_system/static/src/js/auto_refresh.js',
-            #'work_distribution_system/static/src/js/list_refresher.js',
-            #'work_distribution_system/static/src/js/list_view.js'
+            'work_distribution_system/static/src/js/kanban_mark_read.js',
             'work_distribution_system/static/src/js/action_print.js',
             'work_distribution_system/static/src/js/font_size.js',
             'work_distribution_system/static/src/css/main.css',
