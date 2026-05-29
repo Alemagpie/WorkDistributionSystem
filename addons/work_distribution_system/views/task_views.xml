@@ -8,7 +8,7 @@
 
             <!--Header fields-->
             <xpath expr="//header" position="inside">
-                <button name="save_changes" type="object" string="Salva modifiche"/>
+                <button name="open_bin" type="object" string="Cestino" icon="fa-trash" class="btn-secondary"/>
             </xpath>
 
             <!--Form fields-->
@@ -57,7 +57,7 @@
                 <div>
                     <button name="archive_task" title="Archivia task" type="object" class="bottom_btn" id="btn_archive" attrs="{'invisible': [('active', '=', False)]}"/>
                     <button name="unarchive_task" title="Disarchivia task" type="object" class="bottom_btn" id="btn_unarchive" attrs="{'invisible': [('active', '=', True)]}"/>
-                    <button name="move_to_bin_task" title="Sposta task nel cestino" type="object" class="bottom_btn" id="btn_delete" confirm="Sei sicuro di voler eliminare questo task? L'operazione non può essere annullata."/>
+                    <button name="move_to_bin_task" title="Sposta task nel cestino" type="object" class="bottom_btn" id="btn_delete" confirm="La task sarà spostata nel cestino, dove potrà essere recuperata. Continuare?"/>
                     <button name="send_response_it"  title="Invia risposta in italiano" type="object" class="bottom_btn" id="btn_send_it"/>
                     <button name="send_response_eng"  title="Invia risposta in inglese" type="object" class="bottom_btn" id="btn_send_eng"/>
                     <button name="%(action_print_task)d" title="Stampa" type="action" class="bottom_btn" id="btn_print"/>

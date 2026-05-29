@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="project_form_inherit_bin" model="ir.ui.view">
+    <field name="name">project.project.form.inherit.bin</field>
+    <field name="model">project.project</field>
+    <field name="inherit_id" ref="project.edit_project"/>
+    <field name="arch" type="xml">
+        <xpath expr="//header" position="inside">
+            <button name="open_bin" type="object" string="Cestino" icon="fa-trash" class="btn-secondary"/>
+        </xpath>
+    </field>
+</record>
+</odoo>

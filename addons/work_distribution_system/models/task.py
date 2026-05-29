@@ -134,14 +134,30 @@ class Task(models.Model):
             'tag': 'reload'
         }
     
+    #Navigate to bin menu
+    def open_bin(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Cestino',
+            'res_model': 'project.task',
+            'view_mode': 'list,form',
+            'domain': [('is_deleted', '=', True), ('active', '=', False)],
+            'context': {'active_test': False},
+            'views': [(self.env.ref('work_distribution_system.project_task_bin_list').id, 'list')],
+        }
+    
     #Moves task to deleted bin
     def move_to_bin_task(self):
         self.write({
-            'is_deleted': True,
-            'is_deleted_date': fields.Datetime.now(),
-            'active': False  
+            'is_deleted': True#,
+            #'is_deleted_date': fields.Datetime.now()
         })
-        return {'type': 'ir.actions.act_window_close'}
+
+        
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'reload'
+        }
     
     #Clears bin
     def empty_bin(self):
@@ -154,8 +170,7 @@ class Task(models.Model):
     def restore_task(self):
         self.write({
             'is_deleted': False,
-            #'is_deleted_date': fields.Datetime.now(),
-            'active': True  
+            #'is_deleted_date': fields.Datetime.now() 
         })
 
     #Deletes PERMANENTLY the task and its attachments, but it's not shown visually

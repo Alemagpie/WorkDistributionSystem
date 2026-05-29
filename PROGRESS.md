@@ -24,7 +24,7 @@
 26/05   -   Presentazione pt.2 .
 27/05   -   Implementazione feedback.
 28/05   -   Presentazione pt.3 . Implementazione feedback.
-29/05   -   
+29/05   -   Implementazione feedback.
 30/05   -   
 
 01/06   -   
