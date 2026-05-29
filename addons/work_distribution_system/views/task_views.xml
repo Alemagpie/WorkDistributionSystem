@@ -57,7 +57,7 @@
                 <div>
                     <button name="archive_task" title="Archivia task" type="object" class="bottom_btn" id="btn_archive" attrs="{'invisible': [('active', '=', False)]}"/>
                     <button name="unarchive_task" title="Disarchivia task" type="object" class="bottom_btn" id="btn_unarchive" attrs="{'invisible': [('active', '=', True)]}"/>
-                    <button name="delete_task" title="Cancella task" type="object" class="bottom_btn" id="btn_delete" confirm="Sei sicuro di voler eliminare questo task? L'operazione non può essere annullata."/>
+                    <button name="move_to_bin_task" title="Sposta task nel cestino" type="object" class="bottom_btn" id="btn_delete" confirm="Sei sicuro di voler eliminare questo task? L'operazione non può essere annullata."/>
                     <button name="send_response_it"  title="Invia risposta in italiano" type="object" class="bottom_btn" id="btn_send_it"/>
                     <button name="send_response_eng"  title="Invia risposta in inglese" type="object" class="bottom_btn" id="btn_send_eng"/>
                     <button name="%(action_print_task)d" title="Stampa" type="action" class="bottom_btn" id="btn_print"/>
@@ -91,15 +91,12 @@
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_kanban"/>
         <field name="arch" type="xml">
-
-            <xpath expr="//kanban" position="inside">
+            <xpath expr="//field[@name='active']" position="after">
                 <field name="is_read"/>
             </xpath>
-
-            <xpath expr="//templates/t/div" position="attributes">
+            <xpath expr="//div[@t-attf-class]" position="attributes">
                 <attribute name="t-attf-class">{{!selection_mode ? 'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) : ''}} oe_kanban_card oe_kanban_global_click {{!record.is_read.raw_value ? 'o_task_unread' : ''}}</attribute>
             </xpath>
-
         </field>
     </record>
 </odoo>

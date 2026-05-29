@@ -9,6 +9,7 @@
         'views/actions.xml',
         'views/task_list_customization.xml',
         'views/task_views.xml',
+        'views/bin_views.xml',
         #'views/tasks_list_view.xml',
         'data/archive_tasks_cron.xml',
         'data/delete_tasks_cron.xml',
@@ -20,7 +21,7 @@
         'web.assets_backend': [
             'work_distribution_system/static/src/img',
             'work_distribution_system/static/src/js/auto_refresh.js',
-            'work_distribution_system/static/src/js/kanban_mark_read.js',
+            #'work_distribution_system/static/src/js/kanban_mark_read.js',
             'work_distribution_system/static/src/js/action_print.js',
             'work_distribution_system/static/src/js/font_size.js',
             'work_distribution_system/static/src/css/main.css',

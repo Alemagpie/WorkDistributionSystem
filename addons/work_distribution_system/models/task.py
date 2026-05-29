@@ -23,10 +23,14 @@ class Task(models.Model):
     )
     active = fields.Boolean(default=True)
     is_read = fields.Boolean(default=False)
+    is_deleted = fields.Boolean(string='Nel cestino', default=False)
+    is_deleted_date = fields.Datetime(string='Data eliminazione')
 
     #Mark task as opened
     def mark_read(self):
+        _logger.info("mark_read called for tasks: %s", self.ids)
         unread = self.filtered(lambda t: not t.is_read)
+        _logger.info("unread tasks: %s", unread.ids)
         if unread:
             unread.write({'is_read': True})
             return True
@@ -129,8 +133,32 @@ class Task(models.Model):
             'type': 'ir.actions.client',
             'tag': 'reload'
         }
+    
+    #Moves task to deleted bin
+    def move_to_bin_task(self):
+        self.write({
+            'is_deleted': True,
+            'is_deleted_date': fields.Datetime.now(),
+            'active': False  
+        })
+        return {'type': 'ir.actions.act_window_close'}
+    
+    #Clears bin
+    def empty_bin(self):
+        deleted_tasks = self.with_context(active_test=False).search([
+            ('is_deleted', '=', True),
+        ])
+        deleted_tasks.unlink()
 
-    #Deletes the task and its attachments, but it's not shown visually
+    #Moves the task OUT of the bin
+    def restore_task(self):
+        self.write({
+            'is_deleted': False,
+            #'is_deleted_date': fields.Datetime.now(),
+            'active': True  
+        })
+
+    #Deletes PERMANENTLY the task and its attachments, but it's not shown visually
     def delete_task(self):
         project = self.project_id
 
@@ -165,7 +193,7 @@ class Task(models.Model):
             if(years > 5):
                 task.archive_task()
 
-    #Called by a cron job. It checks if the tasks is older than a certain threshold and if so it archives it
+    #Called by a cron job. It checks if the tasks is older than a certain threshold and if so it deletes it
     @api.model
     def check_date_delete(self):
         tasks = self.search([

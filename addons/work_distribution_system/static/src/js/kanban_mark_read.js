@@ -1,19 +1,19 @@
 /** @odoo-module **/
-import { FormController } from "@web/views/form/form_controller";
-import { patch } from "@web/core/utils/patch";
+import { registry } from "@web/core/registry";
 
-patch(FormController.prototype, "work_distribution_system.task_mark_read", {
-    async onWillStart() {
-        await super.onWillStart();
-        console.log("onWillStart fired, model:", this.props.resModel, "id:", this.props.resId);
-        if (this.props.resModel === "project.task" && this.props.resId) {
-            console.log("Calling action_mark_as_read...");
-            const wasUnread = await this.orm.call(
-                "project.task",
-                "mark_read",
-                [[this.props.resId]]
-            );
-            console.log("wasUnread:", wasUnread);
-        }
+const markReadService = {
+    dependencies: ["orm", "action"],
+    start(env, { orm, action }) {
+        document.addEventListener("click", async (e) => {
+            const kanbanCard = e.target.closest(".oe_kanban_global_click");
+            if (kanbanCard) {
+                const resId = parseInt(kanbanCard.dataset.id);
+                if (resId) {
+                    await orm.call("project.task", "mark_read", [[resId]]);
+                }
+            }
+        });
     }
-});
+};
+
+registry.category("services").add("mark_read_service", markReadService);
