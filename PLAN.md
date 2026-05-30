@@ -20,11 +20,11 @@
 - Tag task                                 ✔
 - Auto refresh                             ✔
 - Mail system                              ✔
-- Open indicator (tasks)
+- Open indicator (tasks)                   ?
 - Deleted bin                              ✔
 - Unassign button                          ✔
 - PDF attachment previews 
-- Colored tasks (?)
+- Colored tasks                            ?
 - End of month task recap
 - Assignment logic
 - Network porting

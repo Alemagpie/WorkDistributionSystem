@@ -28,17 +28,24 @@ class Task(models.Model):
     is_deleted_date = fields.Datetime(string='Data eliminazione')
     is_assigned_to_me = fields.Boolean(string='Assegnato a me', compute='compute_is_assigned_to_me')
 
+    #Overrides the search function to not included tasks marked as deleted
     @api.model
     def _search(self, domain, offset=0, limit=None, order=None, count=False, access_rights_uid=None):
         if not self._context.get('show_deleted'):
             domain = expression.AND([[('is_deleted', '=', False)], domain])
         return super()._search(domain, offset=offset, limit=limit, order=order, count=count, access_rights_uid=access_rights_uid)
 
+    #Called both by the backend to fetch data and when user opens task
+    def read(self, fields=None, load='_classic_read'):
+        result = super().read(fields, load)
+        if len(self) == 1 and not self.env.context.get('no_mark_read'):
+            if not self.is_read:
+                self.with_context(no_mark_read=True).write({'is_read': True})
+        return result
+
     #Mark task as opened
     def mark_read(self):
-        _logger.info("mark_read called for tasks: %s", self.ids)
         unread = self.filtered(lambda t: not t.is_read)
-        _logger.info("unread tasks: %s", unread.ids)
         if unread:
             unread.write({'is_read': True})
             return True

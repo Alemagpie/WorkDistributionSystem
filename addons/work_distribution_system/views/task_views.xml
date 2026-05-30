@@ -14,8 +14,7 @@
                     string="Rimuovi assegnazione"
                     type="object"
                     attrs="{'invisible': [('is_assigned_to_me', '=', False)]}"/>
-            </xpath>
-            
+            </xpath>                        
 
             <!--Form fields-->
             <xpath expr="//field[@name='description']" position="before">
@@ -29,6 +28,7 @@
                     can't access them to eval conditions in other attributes -->
                     <field name="is_deleted" invisible="1"/>
                     <field name="is_assigned_to_me" invisible="1"/>
+                    <field name="is_read"/>
 
                     <field name="status" readonly="1"/>
                     <field name="priority" string="Priorità"/>
@@ -109,8 +109,16 @@
             <xpath expr="//field[@name='active']" position="after">
                 <field name="is_read"/>
             </xpath>
-            <xpath expr="//div[@t-attf-class]" position="attributes">
-                <attribute name="t-attf-class">{{!selection_mode ? 'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) : ''}} oe_kanban_card oe_kanban_global_click {{!record.is_read.raw_value ? 'o_task_unread' : ''}}</attribute>
+
+            <!-- Kanban card -->
+            <!--<xpath expr="//field[@name='name'][@widget='name_with_subtask_count']" position="after">
+                <t t-if="!record.is_read.raw_value">
+                    <span style="color:red;">UNREAD</span>
+                </t>
+            </xpath>-->
+
+            <xpath expr="//field[@name='name'][@widget='name_with_subtask_count']" position="after">
+                <span style="color:red;">UNREAD</span>
             </xpath>
         </field>
     </record>

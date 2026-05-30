@@ -46,6 +46,8 @@
 }
 
 /* Kanban unread */
-.o_task_unread {
-    background-color: red  !important;
+.task_unread {
+    width: 16px; 
+    height: 16px; 
+    margin: 0 4px;
 }
