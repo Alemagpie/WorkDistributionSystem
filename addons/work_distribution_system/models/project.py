@@ -10,6 +10,6 @@ class Project(models.Model):
             'res_model': 'project.task',
             'view_mode': 'list,form',
             'domain': [('is_deleted', '=', True)],
-            'context': {'active_test': False},
-            'views': [(self.env.ref('work_distribution_system.project_task_bin_list').id, 'list')],
-        }   
+            'context': {'show_deleted': True},
+            'views': [(self.env.ref('work_distribution_system.project_task_bin_list').id, 'list'), (False, 'form')],
+        }

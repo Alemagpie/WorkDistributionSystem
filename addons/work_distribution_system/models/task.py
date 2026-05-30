@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.osv import expression
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -25,6 +26,13 @@ class Task(models.Model):
     is_read = fields.Boolean(default=False)
     is_deleted = fields.Boolean(string='Nel cestino', default=False)
     is_deleted_date = fields.Datetime(string='Data eliminazione')
+    is_assigned_to_me = fields.Boolean(string='Assegnato a me', compute='compute_is_assigned_to_me')
+
+    @api.model
+    def _search(self, domain, offset=0, limit=None, order=None, count=False, access_rights_uid=None):
+        if not self._context.get('show_deleted'):
+            domain = expression.AND([[('is_deleted', '=', False)], domain])
+        return super()._search(domain, offset=offset, limit=limit, order=order, count=count, access_rights_uid=access_rights_uid)
 
     #Mark task as opened
     def mark_read(self):
@@ -71,12 +79,24 @@ class Task(models.Model):
         })
 
         return super().message_update(msg_dict, update_vals)
+    
+    #Removes user from being assigned to task
+    def unassign_task(self):
+        '''self.write({
+            'user_ids': [(3, self.env.user.id)]
+        })'''
+        self.user_ids = [(3, self.env.user.id)]
 
     #Returns status (needed because otherwise odoo throws an error because of hiding the default field)
     @api.depends('stage_id')
     def compute_status(self):
         for task in self:
             task.status = task.stage_id.name if task.stage_id else ''
+
+    @api.depends('user_ids')
+    def compute_is_assigned_to_me(self):
+        for task in self:
+            task.is_assigned_to_me = self.env.user in task.user_ids
 
     #Returns a dictionary of the attachments
     @api.depends('message_ids')
@@ -140,17 +160,20 @@ class Task(models.Model):
             'type': 'ir.actions.act_window',
             'name': 'Cestino',
             'res_model': 'project.task',
-            'view_mode': 'list,form',
-            'domain': [('is_deleted', '=', True), ('active', '=', False)],
-            'context': {'active_test': False},
-            'views': [(self.env.ref('work_distribution_system.project_task_bin_list').id, 'list')],
+            'view_mode': 'tree,form',
+            'domain': [('is_deleted', '=', True)],
+            'context': {'show_deleted': True},
+            'views': [
+                (self.env.ref('work_distribution_system.project_task_bin_list').id, 'tree'),
+                (False, 'form'),  # False means use default form view
+            ]
         }
     
     #Moves task to deleted bin
     def move_to_bin_task(self):
         self.write({
-            'is_deleted': True#,
-            #'is_deleted_date': fields.Datetime.now()
+            'is_deleted': True,
+            'is_deleted_date': fields.Datetime.now()
         })
 
         
@@ -161,16 +184,34 @@ class Task(models.Model):
     
     #Clears bin
     def empty_bin(self):
-        deleted_tasks = self.with_context(active_test=False).search([
-            ('is_deleted', '=', True),
+        deleted_tasks = self.with_context(show_deleted=True).search([
+        ('is_deleted', '=', True)
         ])
+
+        for task in deleted_tasks:
+            attachments = self.env['ir.attachment'].search([
+                ('res_model', '=', 'project.task'),
+                ('res_id', '=', task.id)
+            ])
+            attachments.unlink()
         deleted_tasks.unlink()
 
     #Moves the task OUT of the bin
     def restore_task(self):
         self.write({
             'is_deleted': False,
-            #'is_deleted_date': fields.Datetime.now() 
+            'is_deleted_date': fields.Datetime.now() 
+        })
+
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'reload'
+        }
+    
+    def restore_task_no_reload(self):
+        self.write({
+            'is_deleted': False,
+            'is_deleted_date': fields.Datetime.now() 
         })
 
     #Deletes PERMANENTLY the task and its attachments, but it's not shown visually

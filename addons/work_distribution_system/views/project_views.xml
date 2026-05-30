@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<record id="project_form_inherit_bin" model="ir.ui.view">
-    <field name="name">project.project.form.inherit.bin</field>
-    <field name="model">project.project</field>
-    <field name="inherit_id" ref="project.edit_project"/>
+<record id="project_task_kanban_bin_inherit" model="ir.ui.view">
+    <field name="name">project.task.kanban.bin.inherit</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="project.view_task_kanban"/>
     <field name="arch" type="xml">
-        <xpath expr="//header" position="inside">
+        <xpath expr="//kanban" position="attributes">
+            <attribute name="action_buttons">1</attribute>
+        </xpath>
+        <xpath expr="//templates" position="before">
             <button name="open_bin" type="object" string="Cestino" icon="fa-trash" class="btn-secondary"/>
         </xpath>
     </field>

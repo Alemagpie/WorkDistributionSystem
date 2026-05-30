@@ -5,7 +5,7 @@
     height: 20px;
 }
 
-.bottom_btn {
+.func_btn {
     background-size: cover;
     width: 32px;
     height: 32px;
@@ -31,6 +31,14 @@
 
 #btn_delete {
     background-image: url('../img/delete-icon.png');
+}
+
+#btn_perm_delete {
+    background-image: url('../img/perm_delete-icon.png');
+}
+
+#btn_restore {
+    background-image: url('../img/restore-icon.png');
 }
 
 #btn_print {

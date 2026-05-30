@@ -4,7 +4,8 @@
         <field name="name">Cestino</field>
         <field name="res_model">project.task</field>
         <field name="view_mode">list,form</field>
-        <field name="domain">[('is_deleted', '=', True)]</field>
+        <field name="domain">[('is_deleted', '=', True)</field>
+        <field name="context">{'show_deleted': True}</field>
         <field name="view_ids" eval="[(5, 0, 0), (0, 0, {'view_mode': 'tree', 'view_id': ref('project_task_bin_list')})]"/>
     </record>
 
@@ -12,14 +13,14 @@
         <field name="name">project.task.bin.list</field>
         <field name="model">project.task</field>
         <field name="arch" type="xml">
-            <tree string="Cestino">
+            <tree string="Cestino">                
                 <field name="name" string="Nome"/>
                 <field name="mail_sender" string="Mittente"/>
                 <field name="is_deleted_date" string="Data eliminazione"/>
-                <button name="restore_task" type="object" string="Ripristina" icon="fa-undo"/>
+                <button name="restore_task_no_reload" type="object" string="Ripristina" icon="fa-undo"/>
                 <button name="delete_task" type="object" string="Elimina definitivamente" 
                     icon="fa-trash"
-                    confirm="Eliminare definitivamente questo task?"/>
+                    confirm="Eliminare definitivamente questa task?"/>
             </tree>
         </field>
     </record>

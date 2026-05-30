@@ -8,8 +8,14 @@
 
             <!--Header fields-->
             <xpath expr="//header" position="inside">
-                <button name="open_bin" type="object" string="Cestino" icon="fa-trash" class="btn-secondary"/>
+                <!--<button name="open_bin" type="object" string="Cestino" icon="fa-trash" class="btn-secondary"/>-->
+                
+                <button name="unassign_task"
+                    string="Rimuovi assegnazione"
+                    type="object"
+                    attrs="{'invisible': [('is_assigned_to_me', '=', False)]}"/>
             </xpath>
+            
 
             <!--Form fields-->
             <xpath expr="//field[@name='description']" position="before">
@@ -19,6 +25,11 @@
                 </group>
                 <separator/>
                 <group>
+                    <!-- These two fields are present but invisible, otherwise odoo 
+                    can't access them to eval conditions in other attributes -->
+                    <field name="is_deleted" invisible="1"/>
+                    <field name="is_assigned_to_me" invisible="1"/>
+
                     <field name="status" readonly="1"/>
                     <field name="priority" string="Priorità"/>
                     <field name="date_deadline" string="Scadenza"/>
@@ -55,12 +66,13 @@
             <xpath expr="//field[@name='description']" position="after">
                 <separator/>
                 <div>
-                    <button name="archive_task" title="Archivia task" type="object" class="bottom_btn" id="btn_archive" attrs="{'invisible': [('active', '=', False)]}"/>
-                    <button name="unarchive_task" title="Disarchivia task" type="object" class="bottom_btn" id="btn_unarchive" attrs="{'invisible': [('active', '=', True)]}"/>
-                    <button name="move_to_bin_task" title="Sposta task nel cestino" type="object" class="bottom_btn" id="btn_delete" confirm="La task sarà spostata nel cestino, dove potrà essere recuperata. Continuare?"/>
-                    <button name="send_response_it"  title="Invia risposta in italiano" type="object" class="bottom_btn" id="btn_send_it"/>
-                    <button name="send_response_eng"  title="Invia risposta in inglese" type="object" class="bottom_btn" id="btn_send_eng"/>
-                    <button name="%(action_print_task)d" title="Stampa" type="action" class="bottom_btn" id="btn_print"/>
+                    <button name="archive_task" title="Archivia task" type="object" class="func_btn" id="btn_archive" attrs="{'invisible': [('active', '=', False)]}"/>
+                    <button name="unarchive_task" title="Disarchivia task" type="object" class="func_btn" id="btn_unarchive" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <button name="move_to_bin_task" title="Sposta task nel cestino" type="object" class="func_btn" id="btn_delete" confirm="La task sarà spostata nel cestino, dove potrà essere recuperata. Continuare?" attrs="{'invisible': [('is_deleted', '=', True)]}"/>
+                    <button name="restore_task_no_reload" title="Recupera task dal cestino" type="object" class="func_btn" id="btn_restore" attrs="{'invisible': [('is_deleted', '=', False)]}"/>
+                    <button name="send_response_it"  title="Invia risposta in italiano" type="object" class="func_btn" id="btn_send_it"/>
+                    <button name="send_response_eng"  title="Invia risposta in inglese" type="object" class="func_btn" id="btn_send_eng"/>
+                    <button name="%(action_print_task)d" title="Stampa" type="action" class="func_btn" id="btn_print"/>
                 </div>
             </xpath>
 
@@ -75,6 +87,9 @@
                 <attribute name="invisible">1</attribute>
             </xpath>
             <xpath expr="//*[@name='date_deadline']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//*[@name='kanban_state']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
             <!--<xpath expr="//*[@name='tag_ids']" position="attributes">

@@ -11,7 +11,6 @@
         'views/task_views.xml',
         'views/bin_views.xml',
         'views/project_views.xml',
-        #'security/hide_deleted_tasks_rule.xml',
         'data/archive_tasks_cron.xml',
         'data/delete_tasks_cron.xml',
         'data/backup_cron.xml',
@@ -22,6 +21,7 @@
         'web.assets_backend': [
             'work_distribution_system/static/src/img',
             'work_distribution_system/static/src/js/auto_refresh.js',
+            'work_distribution_system/static/src/js/bin_button.js',
             #'work_distribution_system/static/src/js/kanban_mark_read.js',
             'work_distribution_system/static/src/js/action_print.js',
             'work_distribution_system/static/src/js/font_size.js',
