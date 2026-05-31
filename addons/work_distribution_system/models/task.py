@@ -28,6 +28,8 @@ class Task(models.Model):
     is_deleted_date = fields.Datetime(string='Data eliminazione')
     is_assigned_to_me = fields.Boolean(string='Assegnato a me', compute='compute_is_assigned_to_me')
 
+    #-----------------------------------------------------------------------------------------------
+
     #Overrides the search function to not included tasks marked as deleted
     @api.model
     def _search(self, domain, offset=0, limit=None, order=None, count=False, access_rights_uid=None):
@@ -54,6 +56,12 @@ class Task(models.Model):
     #Called when a new email comes in and needs to be converted into a task
     @api.model
     def message_new(self, msg_dict, custom_values=None):
+        subject = msg_dict.get('subject', '')
+        body = msg_dict.get('body', '')
+
+        if(not self.filter_mail(subject, body)):
+            return
+
         custom_values = custom_values or {}
         custom_values.update({
             'name': msg_dict.get('subject', '*Nessun oggetto*'),
@@ -238,6 +246,31 @@ class Task(models.Model):
             'tag': 'action_print',
             'params': {}
         }
+    
+    #-----------------------------------------------------------------------------------------------
+
+    #Returns filter set from system parameters (set in ODOO app)
+    @api.model
+    def get_filter_words(self):
+        param = self.env['ir.config_parameter'].sudo().get_param(
+            'work_distribution_system.words_filter', ''
+        )
+        return frozenset(w.strip().lower() for w in param.split(',') if w.strip())
+
+    #Filters mail based on set words
+    @api.model
+    def filter_mail(self, subject, body):
+        words = self.get_filter_words()
+        if not words:
+            return True
+        subject_lc = subject.lower()
+        body_lc = body.lower()
+
+        return not any(
+            word in subject_lc or word in body_lc
+            for word in words
+        )
+
 
     #Called by a cron job. It checks if the tasks is older than a certain threshold and if so it archives it
     @api.model

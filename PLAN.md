@@ -20,15 +20,15 @@
 - Tag task                                 ✔
 - Auto refresh                             ✔
 - Mail system                              ✔
-- Open indicator (tasks)                   ?
+- Open indicator (tasks)                   X
 - Deleted bin                              ✔
 - Unassign button                          ✔
 - PDF attachment previews 
 - Colored tasks                            ?
 - End of month task recap
-- Assignment logic
-- Network porting
-- Users
+- Email filter                             ✔
+- Assignment logic                         ✔
+- Users                                    ✔
 - Tests
 - Feedback
 - Docs

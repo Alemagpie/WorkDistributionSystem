@@ -117,9 +117,10 @@
                 </t>
             </xpath>-->
 
-            <xpath expr="//field[@name='name'][@widget='name_with_subtask_count']" position="after">
-                <span style="color:red;">UNREAD</span>
-            </xpath>
+            <!--<xpath expr="//div[@t-attf-class]" position="attributes">
+                <attribute name="t-attf-class">{{!selection_mode ? 'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) : ''}} oe_kanban_card oe_kanban_global_click {{!record.is_read.raw_value ? 'o_task_unread' : ''}}</attribute>
+                <attribute name="t-att-data-record-id">record.id.raw_value</attribute>
+            </xpath>-->
         </field>
     </record>
 </odoo>

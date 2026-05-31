@@ -22,6 +22,7 @@
             'work_distribution_system/static/src/img',
             'work_distribution_system/static/src/js/auto_refresh.js',
             'work_distribution_system/static/src/js/bin_button.js',
+            'work_distribution_system/static/src/js/unread_icon.js',
             'work_distribution_system/static/src/js/action_print.js',
             'work_distribution_system/static/src/js/font_size.js',
             'work_distribution_system/static/src/css/main.css',

@@ -65,3 +65,4 @@ AGGIUNGERE AI DOCS:
 - le risposte vengono aggiunte alla task originale e ai log
 - come aumentare font
 - cestino
+- parole filtro
