@@ -27,7 +27,9 @@ services:
       - HOST=db
       - USER=odoo
       - PASSWORD=${POSTGRES_PASSWORD}
+    user: root
     volumes:
       - ./data/odoo:/var/lib/odoo
       - ./addons:/mnt/extra-addons
       - ./backups:/mnt/backups
+      - ./summaries:/mnt/summaries

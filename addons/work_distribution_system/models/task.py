@@ -1,5 +1,9 @@
 from odoo import models, fields, api
 from odoo.osv import expression
+from datetime import timedelta
+from collections import Counter
+import io
+import os
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -305,3 +309,64 @@ class Task(models.Model):
             #if(hours > 24):
             if(years > 5 and not task.active):  #Archived tasks don't get deleted
                 task.delete_task()
+
+    #Called once a month, creates a summary of last month's tasks based on their tags
+    @api.model
+    def generate_monthly_summary(self):
+        today = fields.Date.today()
+        first_day = today.replace(day=1)
+        last_month_end = first_day - timedelta(days=1)
+        last_month_start = last_month_end.replace(day=1)
+
+        tasks = self.with_context(show_deleted=True).search([
+            ('create_date', '>=', last_month_start),
+            ('create_date', '<=', last_month_end),
+        ])
+
+        # Count tasks per tag
+        tag_counter = Counter()
+        no_tag_count = 0
+
+        for task in tasks:
+            if task.tag_ids:
+                for tag in task.tag_ids:
+                    tag_counter[tag.name] += 1
+            else:
+                no_tag_count += 1
+
+        import locale
+        try:
+            locale.setlocale(locale.LC_TIME, 'it_IT.UTF-8')
+        except:
+            pass
+        
+        month_year = last_month_start.strftime('%B %Y').capitalize()
+        filename = last_month_start.strftime('%B-%Y').capitalize()
+
+        # Build txt — style however you want
+        lines = []
+        lines.append('=' * 40)
+        lines.append(f'  RIEPILOGO MENSILE - {month_year}')
+        lines.append('=' * 40)
+        lines.append('')
+        lines.append(f'{"ETICHETTA":<25} {"N. TASK":>10}')
+        lines.append('-' * 40)
+        
+        for tag_name, count in sorted(tag_counter.items()):
+            lines.append(f'{tag_name:<25} {count:>10}')
+        
+        if no_tag_count:
+            lines.append(f'{"Senza etichetta":<25} {no_tag_count:>10}')
+        
+        lines.append('-' * 40)
+        lines.append(f'{"TOTALE":<25} {sum(tag_counter.values()) + no_tag_count:>10}')
+        lines.append('=' * 40)
+
+        content = '\n'.join(lines)
+
+        summary_dir = '/mnt/summaries'
+        os.makedirs(summary_dir, exist_ok=True)
+        filepath = os.path.join(summary_dir, f'{filename}.txt')
+
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(content)

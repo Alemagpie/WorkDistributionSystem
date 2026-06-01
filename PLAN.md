@@ -23,9 +23,9 @@
 - Open indicator (tasks)                   X
 - Deleted bin                              ✔
 - Unassign button                          ✔
-- PDF attachment previews 
+- PDF attachment previews                  ✔
 - Colored tasks                            ?
-- End of month task recap
+- End of month task recap                  ✔
 - Email filter                             ✔
 - Assignment logic                         ✔
 - Users                                    ✔

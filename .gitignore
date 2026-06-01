@@ -3,6 +3,7 @@
 *.zip
 
 backups/
+summaries/
 env/
-data/
+/data/
 __pycache__/

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="email_template_response_en" model="mail.template">
+            <field name="name">Automatic response</field>
+            <field name="model_id" ref="project.model_project_task"/>
+            <field name="subject">Re: {{object.mail_subject}}</field>
+            <field name="email_to">{{object.mail_sender}}</field>
+            <field name="body_html">
+                Dear client,
+                Your request has been received and will be processed as soon as possible.
+                
+                Best regards
+            </field>
+        </record>
+    </data>
+</odoo>

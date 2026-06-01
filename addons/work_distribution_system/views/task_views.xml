@@ -28,7 +28,7 @@
                     can't access them to eval conditions in other attributes -->
                     <field name="is_deleted" invisible="1"/>
                     <field name="is_assigned_to_me" invisible="1"/>
-                    <field name="is_read"/>
+                    <field name="is_read" invisible="1"/>
 
                     <field name="status" readonly="1"/>
                     <field name="priority" string="Priorità"/>

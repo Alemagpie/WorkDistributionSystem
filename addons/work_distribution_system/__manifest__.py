@@ -14,6 +14,7 @@
         'data/archive_tasks_cron.xml',
         'data/delete_tasks_cron.xml',
         'data/backup_cron.xml',
+        'data/monthly_summary_cron.xml',
         'data/response_template_it.xml',
         'data/response_template_en.xml'
     ],
