@@ -46,7 +46,10 @@ class Task(models.Model):
         result = super().read(fields, load)
         if len(self) == 1 and not self.env.context.get('no_mark_read'):
             if not self.is_read:
-                self.with_context(no_mark_read=True).write({'is_read': True})
+                self.with_context(no_mark_read=True).write({
+                    'is_read': True,
+                    'color': 0
+                    })
         return result
 
     #Mark task as opened
@@ -72,7 +75,9 @@ class Task(models.Model):
             'mail_subject': msg_dict.get('subject', ''),
             'mail_sender': msg_dict.get('email_from', ''),
             'mail_body': msg_dict.get('body', ''),
-            'arrive_date': msg_dict.get('date', fields.Datetime.now())
+            'arrive_date': msg_dict.get('date', fields.Datetime.now()),
+            'is_read': False,
+            'color': 1
         })
         
         task = super().message_new(msg_dict, custom_values)

@@ -10,10 +10,16 @@ class BinButton extends Component {
         const actionService = useService("action");
         const orm = useService("orm");
 
+        //Goto bin button in project view
         const injectButton_project = () => {
             const controller = actionService.currentController;
             if (controller?.action?.res_model !== 'project.task') return;
-            if (controller?.view?.type !== 'kanban') return;
+            //Only show in kanban or list view
+            if (!['kanban', 'list'].includes(controller?.view?.type)) return; 
+
+            // Don't show in bin view
+            const domain = controller?.action?.domain;
+            if (domain && JSON.stringify(domain).includes('is_deleted')) return;
 
             // Don't inject twice
             if (document.getElementById('bin_button_injected')) return;
@@ -35,7 +41,8 @@ class BinButton extends Component {
             };
             cpButtons.appendChild(btn);
         };
-
+        
+        //Empty bin button ONLY in bin view
         const injectButton_bin = () => {
             const controller = actionService.currentController;
             if (controller?.action?.res_model !== 'project.task') return;

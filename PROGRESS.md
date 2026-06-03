@@ -20,16 +20,16 @@
 22/05   -   Pulizia codice e controlli.
 23/05   -   Ricerca soluzioni di networking. Preparazione presentazione.
 
-25/05   -   Presentazione progresso. Implementazione feedback.
+25/05   -   Presentazione progresso. Implementazione feedback (funzione stampa e dimensione font).
 26/05   -   Presentazione pt.2 .
-27/05   -   Implementazione feedback.
-28/05   -   Presentazione pt.3 . Implementazione feedback.
-29/05   -   Implementazione feedback.
-30/05   -   Implementazione feedback.
+27/05   -   Implementazione feedback (campi aggiuntivi lista e tag).
+28/05   -   Presentazione pt.3 . Implementazione feedback (sistema mail).
+29/05   -   Implementazione feedback (cestino).
+30/05   -   Implementazione feedback (bottone disassegna).
 
-01/06   -   
-02/06   -   
-03/06   -   
+01/06   -   Implementazione feedback (filtro mail).
+02/06   -   Implementazione feedback (quality of life).
+03/06   -   Implementazione feedback (indicatore non letto). Documentazione.
 04/06   -   
 05/06   -   
 06/06   -   

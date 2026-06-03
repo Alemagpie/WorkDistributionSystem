@@ -51,3 +51,9 @@
     height: 16px; 
     margin: 0 4px;
 }
+
+/* Hides red from the possible colors for kanban tasks (red is used as unread) */
+.oe_kanban_colorpicker [data-color="1"],
+.oe_kanban_colorpicker li:nth-child(2) {
+    display: none !important;
+}
