@@ -1,5 +1,7 @@
 from odoo import models, fields, api
 from odoo.osv import expression
+from odoo.tools import html2plaintext
+from lxml import etree
 from datetime import timedelta
 from collections import Counter
 import io
@@ -95,13 +97,42 @@ class Task(models.Model):
     @api.model
     def message_update(self, msg_dict, update_vals=None):
         update_vals = update_vals or {}
-        new_body = msg_dict.get('body', '')
+    
+        body = msg_dict.get('body', '')
+        descr = self.description or '' 
         current_body = self.mail_body or ''
+        
+        try:
+            tree = etree.fromstring('<div>' + body + '</div>', etree.HTMLParser())
+            
+            # Remove quoted blocks
+            for quoted in tree.xpath('//*[@data-o-mail-quote="1"]'):
+                quoted.getparent().remove(quoted)
+            for quoted in tree.xpath('//*[@data-o-mail-quote-container="1"]'):
+                quoted.getparent().remove(quoted)
+            
+            # Get clean body content
+            body_el = tree.find('.//body')
+            if body_el is not None:
+                clean_html = ''.join(
+                    etree.tostring(child, encoding='unicode', method='html')
+                    for child in body_el
+                )
+            else:
+                clean_html = body
+            
+            # Convert to plain text to remove all HTML tags
+            reply_body = html2plaintext(clean_html).strip()
+
+        except Exception:
+            reply_body = html2plaintext(body).strip()
 
         update_vals.update({
-            'mail_body': current_body + '<hr/>' + new_body
+            'mail_body': current_body + '<hr/>' + reply_body,
+            'description': descr + '\n' + reply_body,
+            'is_read': False,
+            'color': 1
         })
-
         return super().message_update(msg_dict, update_vals)
     
     #Removes user from being assigned to task
