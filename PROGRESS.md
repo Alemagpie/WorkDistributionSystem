@@ -30,8 +30,8 @@
 01/06   -   Implementazione feedback (filtro mail).
 02/06   -   Implementazione feedback (quality of life).
 03/06   -   Implementazione feedback (indicatore non letto). Documentazione.
-04/06   -   
-05/06   -   
-06/06   -   
+04/06   -   Fine documentazione.
+05/06   -   Test.
+06/06   -   Test.
 
-08/06   -   
+08/06   -   Test.

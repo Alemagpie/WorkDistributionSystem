@@ -31,5 +31,5 @@
 - Users                                    ✔
 - Tests
 - Feedback
-- Docs
+- Docs                                     ✔
 - Optimization
